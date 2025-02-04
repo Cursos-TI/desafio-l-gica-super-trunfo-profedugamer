@@ -17,6 +17,8 @@ int main() {
     printf("A combinação da letra do estado e o número da cidade define o código da carta\n(por exemplo, A01, A02, B01, B02).\n");
     printf("Para começar o jogo, cadastre suas cartas.\n\n");
 
+    //Variável para a criação do menu de comparação das cartas
+    int menuComparacao; 
 
     //Variáveis da primeira carta
     char codigo_da_cidade[4];
@@ -89,7 +91,7 @@ int main() {
     //Desafio 3 - Cálculo do Superpoder - Primeira carta e segunda carta
     superpoder = (float) populacao + area + pib + pontos_turisticos + densidade_populacional + pib_per_capita;
     superpoder2 = (float) populacao2 + area2 + pib2 + pontos_turisticos2 + densidade_populacional2 + pib_per_capita2;
-
+    
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
@@ -107,7 +109,7 @@ int main() {
     printf("O PIB per Capita é: %.2f\n", pib_per_capita);
 
     //Adicionado superpoder da primeira carta
-    printf("Super poder: %.2f\n", superpoder);
+    printf("Superpoder: %.2f\n", superpoder);
 
     //Exibição das características da segunda carta
     printf("\nCódigo da segunda carta: %s\n", codigo_da_cidade2);
@@ -120,96 +122,178 @@ int main() {
     printf("O PIB per Capita é: %.2f\n", pib_per_capita2);
     printf("Super poder: %.2f\n", superpoder2);
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    // Menu de Comparação de Cartas
+    printf("\nQual atributo você deseja comparar?\n\n");
+    printf("1. População.\n");
+    printf("2. Área.\n");
+    printf("3. PIB.\n");
+    printf("4. Pontos turísticos.\n");
+    printf("5. Densidade populacional.\n");
+    printf("6. PIB per capita.\n");
+    printf("7. Superpoder.\n");
+    printf("8. Todos atributos.\n");
     
-    // Exibição dos Resultados:
-    printf("\nResultados da comparação das cartas:\n");
+    //Entrada para o menu de 1 a 8
+    printf("\nEntre com um número de 1 a 8:\n");
+    scanf("%d", &menuComparacao);
+    
+    switch (menuComparacao) {
+        
+    // Case 1 - Comparação e exibição dos resultados da população
+    case 1:
+    printf("\n### RESULTADO ###\n\n");
 
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+       if (populacao > populacao2) {
+            printf("Atributo escolhido - População: A cidade %s venceu, pois tem maior população.\n", nome);
+        } else if (populacao2 > populacao){
+            printf("Atributo escolhido - População: A cidade %s venceu, pois tem maior população.\n", nome2);
+        } else {
+            printf("Atributo escolhido - População: Empatou!!! As duas cidades tem o mesmo número de população.\n");
+        }
+    break;
+    
+    //Case 2 - Comparação e exibição dos resultados da área
+    case 2:
+    printf("\n### RESULTADO ###\n\n");
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+        if (area > area2){
+            printf("Atributo escolhido - Área: A cidade %s venceu, pois tem a maior área.\n", nome);
+        } else if (area2 > area){
+            printf("Atributo escolhido - Área: A cidade %s venceu, pois tem a maior área.\n", nome2);
+        } else {
+            printf("Atributo escolhido - Área: Empatou!!! As duas cidades tem a mesma área.\n");
+        }
+    break;
 
+    // Case 3 - Comparação e exibição dos resultados da PIB
+    case 3:
+    printf("\n### RESULTADO ###\n\n");
 
+        if (pib > pib2) {
+            printf("Atributo escolhido - PIB: A cidade %s venceu, pois tem o maior PIB.\n", nome);
+        } else if (pib2 > pib){
+            printf("Atributo escolhido - PIB: A cidade %s venceu, pois tem o maior PIB.\n", nome2);
+        } else {
+            printf("Atributo escolhido - PIB: Empatou!!! As duas cidades tem o mesmo PIB.\n");
+        }
+    break;
 
-    // Comparação e exibição dos resultados da população
-    if (populacao > populacao2) {
-        printf("População: A cidade %s venceu, pois tem maior população.\n", nome);
-    } else {
-        if (populacao2 > populacao){
+    // Case 4 - Comparação e exibição dos resultados da Pontos Turísticos
+    case 4:
+    printf("\n### RESULTADO ###\n\n");
+
+        if (pontos_turisticos > pontos_turisticos2) {
+            printf("Atributo escolhido - P. Turísticos: A cidade %s venceu, pois tem mais pontos turísticos.\n", nome);
+        } else if (pontos_turisticos2 > pontos_turisticos){
+            printf("Atributo escolhido - P. Turísticos: A cidade %s venceu, pois tem mais pontos turísticos.\n", nome2);
+        } else {
+            printf("Atributo escolhido - P. Turísticos: Empatou!!! As duas cidades tem a mesma quantidade de pontos turísticos.\n");
+        }
+    break;
+
+    // Case 5 - Comparação e exibição dos resultados da Densidade Populacional
+    case 5:
+    printf("\n### RESULTADO ###\n\n");
+
+        if (densidade_populacional < densidade_populacional2) {
+            printf("Atributo escolhido - Densidade Populacional: A cidade %s venceu, pois tem a menor densidade populacional.\n", nome);
+       } else if (densidade_populacional2 < densidade_populacional){
+            printf("Atributo escolhido - Densidade Populacional: A cidade %s venceu, pois tem menor densidade populacional.\n", nome2);
+        } else {
+            printf("Atributo escolhido - Densidade Populacional: Empatou!!! As duas cidades tem a mesma quantidade de densidade populacional.\n");
+        }
+    break;
+
+    // Case 6 - Comparação e exibição dos resultados da pib per capita
+    case 6:
+    printf("\n### RESULTADO ###\n\n");
+
+        if (pib_per_capita > pib_per_capita2) {
+            printf("Atributo escolhido - PIB per Capita: A cidade %s venceu, pois tem o maior PIB per Capita.\n", nome);
+        } else if (pib_per_capita2 > pib_per_capita){
+            printf("Atributo escolhido - PIB per Capita: A cidade %s venceu, pois tem o maior PIB per Capita.\n", nome2);
+        } else {
+            printf("Atributo escolhido - PIB per Capita: Empatou!!! As duas cidades tem o mesmo PIB per Capita.\n");
+        }
+    break;
+
+    // Case 7 - Comparação e exibição dos resultados do superpoder   
+    case 7:
+    printf("\n### RESULTADO ###\n\n");
+
+        if (superpoder > superpoder2) {
+            printf("Atributo escolhido - Superpoder: A cidade %s venceu, pois tem o maior super poder.\n", nome);
+        } else if (superpoder2 > superpoder){
+            printf("Atributo escolhido - Superpoder: A cidade %s venceu, pois tem o maior super poder.\n", nome2);
+        } else {
+            printf("Atributo escolhido - Superpoder: Empatou!!! As duas cidades tem o mesmo Super Poder.\n");
+        }
+    break;
+
+    // Case 8 - Todos os resultados comparados
+    case 8:
+    printf("\n### RESULTADO ###\n\n");
+
+        if (populacao > populacao2) {
+            printf("População: A cidade %s venceu, pois tem maior população.\n", nome);
+        } else if (populacao2 > populacao){
             printf("População: A cidade %s venceu, pois tem maior população.\n", nome2);
         } else {
             printf("População: Empatou!!! As duas cidades tem o mesmo número de população.\n");
         }
-    }
 
-    // Comparação e exibição dos resultados da área
-    if (area > area2){
-        printf("Área: A cidade %s venceu, pois tem a maior área.\n", nome);
-    } else {
-        if (area2 > area){
+        if (area > area2){
+            printf("Área: A cidade %s venceu, pois tem a maior área.\n", nome);
+        } else if (area2 > area){
             printf("Área: A cidade %s venceu, pois tem a maior área.\n", nome2);
         } else {
             printf("Área: Empatou!!! As duas cidades tem a mesma área.\n");
         }
-    }
 
-    // Comparação e exibição dos resultados da PIB
-    if (pib > pib2) {
-        printf("PIB: A cidade %s venceu, pois tem o maior PIB.\n", nome);
-    } else {
-        if (pib2 > pib){
+        if (pib > pib2) {
+            printf("PIB: A cidade %s venceu, pois tem o maior PIB.\n", nome);
+        } else if (pib2 > pib){
             printf("PIB: A cidade %s venceu, pois tem o maior PIB.\n", nome2);
         } else {
             printf("PIB: Empatou!!! As duas cidades tem o mesmo PIB.\n");
         }
-    }
-    
-    // Comparação e exibição dos resultados da Pontos Turísticos
-    if (pontos_turisticos > pontos_turisticos2) {
-        printf("P. Turísticos: A cidade %s venceu, pois tem mais pontos turísticos.\n", nome);
-    } else {
-        if (pontos_turisticos2 > pontos_turisticos){
+
+        if (pontos_turisticos > pontos_turisticos2) {
+            printf("P. Turísticos: A cidade %s venceu, pois tem mais pontos turísticos.\n", nome);
+        } else if (pontos_turisticos2 > pontos_turisticos){
             printf("P. Turísticos: A cidade %s venceu, pois tem mais pontos turísticos.\n", nome2);
         } else {
             printf("P. Turísticos: Empatou!!! As duas cidades tem a mesma quantidade de pontos turísticos.\n");
         }
-    }
 
-    // Comparação e exibição dos resultados da Densidade Populacional
-    if (densidade_populacional > densidade_populacional2) {
-        printf("Densidade Populacional: A cidade %s venceu, pois tem a maior densidade populacional.\n", nome);
-    } else {
-        if (densidade_populacional2 > densidade_populacional){
-            printf("Densidade Populacional: A cidade %s venceu, pois tem mais pontos turísticos.\n", nome2);
+        if (densidade_populacional < densidade_populacional2) {
+            printf("Densidade Populacional: A cidade %s venceu, pois tem a menor densidade populacional.\n", nome);
+        } else if (densidade_populacional2 < densidade_populacional){
+            printf("Densidade Populacional: A cidade %s venceu, pois tem menor densidade populacional.\n", nome2);
         } else {
-            printf("Densidade Populacional: Empatou!!! As duas cidades tem a mesma quantidade de pontos turísticos.\n");
+            printf("Densidade Populacional: Empatou!!! As duas cidades tem a mesma quantidade de densidade populacional.\n");
         }
-    }
 
-    // Comparação e exibição dos resultados da pib per capita
-    if (pib_per_capita > pib_per_capita2) {
-        printf("PIB per Capita: A cidade %s venceu, pois tem o maior PIB per Capita.\n", nome);
-    } else {
-        if (pib_per_capita2 > pib_per_capita){
+        if (pib_per_capita > pib_per_capita2) {
+            printf("PIB per Capita: A cidade %s venceu, pois tem o maior PIB per Capita.\n", nome);
+        } else if (pib_per_capita2 > pib_per_capita){
             printf("PIB per Capita: A cidade %s venceu, pois tem o maior PIB per Capita.\n", nome2);
         } else {
             printf("PIB per Capita: Empatou!!! As duas cidades tem o mesmo PIB per Capita.\n");
         }
-    }
 
-    // Comparação e exibição dos resultados do superpoder
-    if (superpoder > superpoder2) {
-        printf("Super poder: A cidade %s venceu, pois tem o maior super poder.\n", nome);
-    } else {
-        if (superpoder2 > superpoder){
+        if (superpoder > superpoder2) {
+            printf("Super poder: A cidade %s venceu, pois tem o maior super poder.\n", nome);
+        } else if (superpoder2 > superpoder){
             printf("Super poder: A cidade %s venceu, pois tem o maior super poder.\n", nome2);
         } else {
             printf("Super poder: Empatou!!! As duas cidades tem o mesmo Super Poder.\n");
         }
+    break;
+
+    default:
+        printf("Entrada inválida.");
+    break;
     }
 
     return 0;
