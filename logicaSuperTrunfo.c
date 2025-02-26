@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países - Tema 2 - Comparação das Cartas
+// Desafio 2 (Tema 2) - Super Trunfo Países - Comparação das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
 
     // Descrição do jogo Super Trunfo Países
     printf("Bem vindo ao jogo Super Trunfo Países\n\n");
@@ -14,12 +12,14 @@ int main() {
     printf("Cada estado terá quatro cidades, numeradas de 1 a 4.\n");
     printf("A combinação da letra do estado e o número da cidade define o código da carta\n(por exemplo, A01, A02, B01, B02).\n");
     printf("Para começar o jogo, cadastre suas cartas.\n\n");
-
-    //Variáveis para a criação do menu e comparação das cartas
+    
+    // Definição das variáveis para armazenar as propriedades das cidades
+    // Você pode utilizar o código do primeiro desafio
+    //Variáveis para a criação do menu, comparação e resultados das cartas
     int menuComparacao, comparacaoUm, comparacaoDois, resultadoDoisAtributos, menuEscolha;
 
     //Variáveis da primeira carta
-    char codigo_da_cidade[4];
+    char codigo_da_cidade[10];
     char nome[50];
     int populacao;
     float area;
@@ -38,18 +38,16 @@ int main() {
     unsigned int densidade_populacional2;
     float pib_per_capita2, superpoder2;
 
-  
+    
     // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
-
+    // Instrução: Implemente a lógica para solicitar ao usuário que insira os dados das cidades
+    // Utilize a função scanf para capturar as entradas e utilize o código do primeiro desafio
 
     //Entrada de dados da primeira carta
     printf("Insira o código da primeira carta: \n");
-    scanf("%s", &codigo_da_cidade);
+    scanf("%s", codigo_da_cidade);
     printf("Insira o nome da cidade: \n");
-    scanf(" %[^\n]", &nome); //Entrada para aceitar espaço no nome das cidades. Comando: %[^\n]
+    scanf(" %[^\n]", nome); //Entrada para aceitar espaço no nome das cidades. Comando: %[^\n]
     printf("Insira a população da cidade: \n");
     scanf("%d", &populacao);
     printf("Insira o valor da área (km²): \n");
@@ -61,9 +59,9 @@ int main() {
 
     //Entrada de dados da segunda carta
     printf("\nInsira o código da segunda carta: \n");
-    scanf("%s", &codigo_da_cidade2);
+    scanf("%s", codigo_da_cidade2);
     printf("Insira o nome da cidade: \n");
-    scanf(" %[^\n]", &nome2); //Entrada para aceitar espaço no nome das cidades. Comando: %[^\n]
+    scanf(" %[^\n]", nome2); //Entrada para aceitar espaço no nome das cidades. Comando: %[^\n]
     printf("Insira a população da cidade: \n");
     scanf("%d", &populacao2);
     printf("Insira o valor da área (km²): \n");
@@ -86,7 +84,8 @@ int main() {
     densidade_populacional2 = (unsigned int) populacao2 / area2;
     pib_per_capita2 = (float) pib2 / populacao2;
 
-    //Desafio 3 - Cálculo do Superpoder - Primeira carta e segunda carta
+    //Desafio - Cálculo do Superpoder - Primeira carta e segunda carta
+    //Obs: O valor do superpoder é a soma de todos os atributos da carta
     superpoder = (float) populacao + area + pib + pontos_turisticos + densidade_populacional + pib_per_capita;
     superpoder2 = (float) populacao2 + area2 + pib2 + pontos_turisticos2 + densidade_populacional2 + pib_per_capita2;
     
@@ -102,7 +101,7 @@ int main() {
     printf("PIB: %.2lf\n", pib);
     printf("Pontos Turisticos: %d\n", pontos_turisticos);
 
-    //Novos printf do programa - nível aventureiro
+    //Novos printf do programa - nível aventureiro (primeira carta)
     printf("A densidade populacional é: %u\n", densidade_populacional);
     printf("O PIB per Capita é: %.2f\n", pib_per_capita);
 
@@ -118,7 +117,7 @@ int main() {
     printf("Pontos Turisticos: %d\n", pontos_turisticos2);
     printf("A densidade populacional é: %u\n", densidade_populacional2);
     printf("O PIB per Capita é: %.2f\n", pib_per_capita2);
-    printf("Super poder: %.2f\n", superpoder2);
+    printf("Super poder: %.2f\n", superpoder2); //Adicionado superpoder da segunda carta
 
     // Menu de Comparação das Cartas
     printf("\nQual atributo você deseja comparar?\n");
